@@ -1,4 +1,5 @@
 FROM debian:stretch-slim
+LABEL maintainer "Andriy Khavryuchenko <akhavr@khavr.com>"
 
 USER root
 WORKDIR /root
