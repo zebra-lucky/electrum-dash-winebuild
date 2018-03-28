@@ -6,7 +6,8 @@ WORKDIR /root
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        wget ca-certificates xvfb zip unzip wine32 wine64 wine \
+        wine-development wine32-development wine64-development libwine-development libwine-development:i386 \
+        wget ca-certificates zip unzip \
     && rm -rf /var/lib/apt/lists/*
 
 ENV WINEPATH c:/git/cmd
@@ -39,7 +40,8 @@ RUN echo 'download and install 32-bit Python/mingwpy/pywin32/PyQt/git/NSIS/PyIns
     && wget -nv -O nsis.exe "https://sourceforge.net/projects/nsis/files/NSIS%202/2.51/nsis-2.51-setup.exe/download" \
     && wine nsis.exe /S && rm nsis.exe \
     \
-    && wine pip install PyInstaller==3.2.1
+    && wine pip install PyInstaller==3.2.1 \
+    && rm -rf /tmp/.wine-0
 
 
 ENV WINEPREFIX /root/.wine-64
@@ -70,4 +72,5 @@ RUN echo 'download and install 64-bit Python/mingwpy/pywin32/PyQt/git/NSIS/PyIns
     && wget -nv -O nsis.exe "https://sourceforge.net/projects/nsis/files/NSIS%202/2.51/nsis-2.51-setup.exe/download" \
     && wine nsis.exe /S && rm nsis.exe \
     \
-    && wine pip install PyInstaller==3.2.1
+    && wine pip install PyInstaller==3.2.1 \
+    && rm -rf /tmp/.wine-0
