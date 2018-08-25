@@ -1,10 +1,13 @@
-FROM debian:buster-slim
+FROM ubuntu:18.04
 LABEL maintainer "Andriy Khavryuchenko <akhavr@khavr.com>"
 
 USER root
 WORKDIR /root
 
 RUN dpkg --add-architecture i386 \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends software-properties-common \
+    && apt-add-repository -y ppa:zebra-lucky/ed-bdeps \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         wine-development wine32-development wine64-development libwine-development libwine-development:i386 \
