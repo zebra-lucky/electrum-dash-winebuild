@@ -78,7 +78,7 @@ RUN cd ${OPTDIR} \
     && cd ${OPTDIR} \
     && git clone https://github.com/kivy/buildozer \
     && cd buildozer \
-    && git checkout 88e4a4b0c7733eec1d14c00579ec412fb59ad7f2 \
+    && git checkout 6142acfa40cf9a225644470e5410333c35a3bc4a \
     && python3 -m pip install -e .
 
 RUN cd ${OPTDIR} \
