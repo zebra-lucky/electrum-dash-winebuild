@@ -109,10 +109,7 @@ RUN cd ${OPTDIR} \
     && unzip -q "${ANDROID_NDK_ARCHIVE}" -d "${OPTDIR}" \
     && chown -R ${USER}.${USER} ${OPTDIR} \
     && ln -sfn "${ANDROID_NDK_HOME_V}" "${ANDROID_NDK_HOME}" \
-    && rm -rf "${ANDROID_NDK_ARCHIVE}" \
-    && rm -rf /opt/android-ndk-r17c/toolchains/aarch64-linux-android-4.9 \
-    && rm -rf /opt/android-ndk-r17c/toolchains/mips64el-linux-android-4.9 \
-    && rm -rf /opt/android-ndk-r17c/toolchains/mipsel-linux-android-4.9
+    && rm -rf "${ANDROID_NDK_ARCHIVE}"
 
 USER ${USER}
 WORKDIR ${WORKDIR}
